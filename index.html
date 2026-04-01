@@ -53,11 +53,8 @@ color:#333;
 font-weight:600;
 }
 
-/* АДАПТИВ */
 @media(max-width:768px){
-.menu{
-width:220px;
-}
+.menu{width:220px;}
 }
 
 /* STORY */
@@ -79,13 +76,8 @@ transition:0.3s;
 transform:scale(1.05);
 }
 
-.story-text{
-flex:1;
-}
-
-.story-text p{
-margin-bottom:12px;
-}
+.story-text{flex:1;}
+.story-text p{margin-bottom:12px;}
 
 /* HEADER */
 header{
@@ -143,11 +135,7 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
-/* ФАКТЫ */
-.fact{
-text-align:center;
-font-weight:600;
-}
+.fact{text-align:center;font-weight:600;}
 
 /* МОДАЛКА */
 .modal{
@@ -158,15 +146,16 @@ width:100%;height:100%;
 background:rgba(0,0,0,0.6);
 justify-content:center;
 align-items:center;
+z-index:2000;
 }
 
 .modal-content{
-background:linear-gradient(135deg,#ffffff,#f3e7ff);
-padding:40px;
-border-radius:25px;
-max-width:700px;
+background:#fff;
+padding:30px;
+border-radius:20px;
+max-width:500px;
 width:90%;
-line-height:1.7;
+text-align:center;
 }
 
 /* АНИМАЦИИ */
@@ -214,6 +203,7 @@ transform:translateY(0);
 
 <section id="facts" class="hidden">
 <h2>✨ Интересные факты</h2>
+
 <div class="grid">
 <div class="card fact" onclick="openModal('fact1')">🧠 Развивают мозг</div>
 <div class="card fact" onclick="openModal('fact2')">😌 Снижают стресс</div>
@@ -227,7 +217,7 @@ transform:translateY(0);
 <section id="styles" class="hidden">
 <h2>Популярные стили танцев</h2>
 <div class="grid">
-    <div class="card">Hip-Hop — энергия и свобода</div>
+<div class="card">Hip-Hop — энергия и свобода</div>
 <div class="card">Contemporary — эмоции и глубина</div>
 <div class="card">Jazz-Funk — сцена и харизма</div>
 </div>
@@ -259,7 +249,7 @@ transform:translateY(0);
 <div class="card">
 <p>Нужны не только движения, но и <b>уверенность</b>.</p>
 <p>Участвуй в <b>конкурсах и выступлениях</b>.</p>
-<p>Показывай себя — выкладывай видео.</p>
+<p>Показывай себя.</p>
 <p>Развивай <b>харизму и эмоции</b>.</p>
 <p>Со временем сцена станет комфортной.</p>
 </div>
@@ -277,6 +267,15 @@ transform:translateY(0);
 </div>
 </div>
 </section>
+
+<!-- МОДАЛКИ -->
+
+<div id="fact1" class="modal"><div class="modal-content"><span onclick="closeModal('fact1')">✖</span><h2>Мозг</h2><p>Танцы развивают память и внимание.</p></div></div>
+<div id="fact2" class="modal"><div class="modal-content"><span onclick="closeModal('fact2')">✖</span><h2>Стресс</h2><p>Танцы помогают расслабиться и снизить тревожность.</p></div></div>
+<div id="fact3" class="modal"><div class="modal-content"><span onclick="closeModal('fact3')">✖</span><h2>Уверенность</h2><p>Танцы повышают самооценку.</p></div></div>
+<div id="fact4" class="modal"><div class="modal-content"><span onclick="closeModal('fact4')">✖</span><h2>Пластика</h2><p>Развивается гибкость и контроль тела.</p></div></div>
+<div id="fact5" class="modal"><div class="modal-content"><span onclick="closeModal('fact5')">✖</span><h2>Энергия</h2><p>Танцы дают заряд бодрости.</p></div></div>
+<div id="fact6" class="modal"><div class="modal-content"><span onclick="closeModal('fact6')">✖</span><h2>Настроение</h2><p>Вырабатываются гормоны счастья.</p></div></div>
 
 <script>
 function toggleMenu(){
