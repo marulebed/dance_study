@@ -190,7 +190,14 @@ transition:0.3s;
 .inst-btn:hover{
 transform:scale(1.05);
 }
+video{
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
+transition:0.3s;
+}
 
+video:hover{
+transform:scale(1.02);
+}
 </style>
 </head>
 
@@ -327,6 +334,19 @@ document.querySelectorAll('.hidden').forEach(el=>{
 observer.observe(el);
 });
 </script>
+<section id="video"
 
+
+<div class="card" style="text-align:center">
+
+<p style="margin-bottom:20px">
+Вот к чему ты можешь прийти, если начнёшь заниматься танцами 👇
+</p>
+
+<video controls autoplay muted loop style="width:100%; border-radius:20px;">
+  <source src="dance.mp4" type="video/mp4">
+</video>
+</div>
+</section>
 </body>
 </html>
