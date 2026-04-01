@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Танцы с нуля</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Montserrat',sans-serif;
+background: linear-gradient(135deg,#d9a7c7,#fffcdc,#a1c4fd);
+color:#222;
+scroll-behavior:smooth;
+}
+
+/* МЕНЮ */
+.menu-btn{
+position:fixed;
+top:20px;
+left:20px;
+font-size:30px;
+cursor:pointer;
+z-index:1000;
+}
+
+.menu{
+position:fixed;
+top:0;
+left:-260px;
+width:260px;
+height:100%;
+background:#fff;
+padding:30px;
+transition:0.4s;
+box-shadow:0 0 40px rgba(0,0,0,0.2);
+}
+
+.menu a{
+display:block;
+margin:15px 0;
+text-decoration:none;
+color:#333;
+font-weight:600;
+}
+
+.story-block{
+display:flex;
+align-items:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.story-img{
+width:220px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.story-img:hover{
+transform:scale(1.05);
+}
+
+.story-text{
+flex:1;
+}
+
+.story-text p{
+margin-bottom:12px;
+}
+
+/* HEADER */
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+header h1{
+font-size:60px;
+font-weight:900;
+}
+
+header p{
+margin-top:15px;
+font-size:20px;
+}
+
+/* SECTION */
+section{
+padding:80px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:25px;
+margin-bottom:20px;
+transition:0.4s;
+line-height:1.7;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 25px 60px rgba(0,0,0,0.25),
+            0 0 20px rgba(255,255,255,0.4);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* ФАКТЫ */
+.fact{
+text-align:center;
+font-weight:600;
+}
+
+/* МОДАЛКА */
+.modal{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+}
+
+.modal-content{
+background:linear-gradient(135deg,#ffffff,#f3e7ff);
+padding:40px;
+border-radius:25px;
+max-width:700px;
+width:90%;
+line-height:1.7;
+box-shadow:0 20px 60px rgba(0,0,0,0.3);
+}
+
+/* АНИМАЦИИ */
+.hidden{
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+.show{
+opacity:1;
+transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div class="menu" id="menu">
+<a href="#about">Танцы</a>
+<a href="#facts">Факты</a>
+<a href="#styles">Стили</a>
+<a href="#start">Начать</a>
+<a href="#grow">Развитие</a>
+<a href="#stage">Сцена</a>
+<a href="#story">История</a>
+</div>
+
+<header>
+<h1>ТАНЦЫ С НУЛЯ 💃</h1>
+<p>Просто начни — и всё получится</p>
+</header>
+
+<section id="about" class="hidden">
+<h2>Что такое танцы</h2>
+<div class="card">
+<p>
+Танцы — это не просто движения под музыку, а особый способ самовыражения, через который человек передаёт эмоции, настроение и внутреннее состояние. Это универсальный язык тела, понятный без слов.
+</p>
+
+<p>
+С помощью танца можно выразить радость, уверенность, силу или, наоборот, мягкость и спокойствие. Именно поэтому танцы используются не только как вид искусства, но и как способ развития личности.
+</p>
+
+<p>
+Регулярные занятия помогают лучше чувствовать своё тело, развивают координацию, пластичность и уверенность в себе. Человек становится более раскрепощённым и открытым.
+</p>
+
+<p>
+Для многих танцы становятся не просто хобби, а образом жизни, который влияет на самооценку, общение и даже возможности в будущем.
+</p>
+</div>
+</section>
+
+<section id="facts" class="hidden">
+<h2>✨ Интересные факты</h2>
+
+<div class="grid">
+
+<div class="card fact" onclick="openModal('fact1')">🧠 Развивают мозг</div>
+<div class="card fact" onclick="openModal('fact2')">😌 Снижают стресс</div>
+<div class="card fact" onclick="openModal('fact3')">🔥 Уверенность</div>
+<div class="card fact" onclick="openModal('fact4')">💃 Пластика</div>
+<div class="card fact" onclick="openModal('fact5')">⚡ Энергия</div>
+<div class="card fact" onclick="openModal('fact6')">❤️ Настроение</div>
+
+</div>
+</section>
+
+<section id="styles" class="hidden">
+<h2>Популярные стили танцев</h2>
+
+<div class="grid">
+<div class="card">Hip-Hop — энергия и свобода</div>
+<div class="card">Contemporary — эмоции и глубина</div>
+<div class="card">Jazz-Funk — сцена и харизма</div>
+</div>
+
+</section>
+
+<section id="start" class="hidden">
+<h2>Как начать</h2>
+<div class="card">
+<p>
+Начать заниматься танцами можно в любом возрасте и с любым уровнем подготовки. Самое главное — это желание и готовность пробовать новое. Многие новички сталкиваются со страхом, что у них «не получится», однако танцы — это навык, который развивается со временем, а не врождённый талант.
+</p>
+
+<p>
+Первый шаг — выбрать направление, которое тебе откликается. Это может быть hip-hop, contemporary, jazz-funk или любой другой стиль. Не обязательно сразу выбирать «идеальный» вариант — гораздо важнее начать и попробовать.
+</p>
+
+<p>
+Далее важно уделить внимание базовым движениям. Освоение базы помогает лучше понимать тело, координацию и ритм. На этом этапе не стоит торопиться — качественная основа значительно ускоряет дальнейший рост.
+</p>
+
+<p>
+Регулярность играет ключевую роль. Даже 2–3 тренировки в неделю уже дают заметный результат. Гораздо эффективнее заниматься понемногу, но стабильно, чем редко и хаотично.
+</p>
+
+<p>
+Также важно не бояться ошибок. Ошибки — это нормальная часть обучения. Через них формируется опыт и приходит уверенность. Чем больше ты практикуешься, тем быстрее начинаешь чувствовать себя свободно в движении.
+</p>
+
+<p>
+Дополнительно можно использовать видеоуроки, разборы и выступления профессиональных танцоров. Повторение за другими помогает быстрее развить насмотренность и улучшить технику.
+</p>
+
+<p>
+Самое главное — получать удовольствие от процесса. Танцы — это не только про результат, но и про эмоции, состояние и внутреннюю свободу.
+</p>
+</section>
+
+<section id="grow" class="hidden">
+<h2>Как развиваться</h2>
+<div class="card">
+   <p><b>Посещай мастер-классы</b><br>
+Работа с разными хореографами помогает расширить кругозор, узнать новые техники и быстрее прогрессировать.</p>
+
+<p><b>Снимай себя на видео</b><br>
+Это позволяет увидеть свои ошибки со стороны и отслеживать прогресс со временем.</p>
+
+<p><b>Тренируйся регулярно</b><br>
+Системная практика — главный фактор роста. Даже короткие, но постоянные тренировки дают результат.</p>
+
+<p><b>Развивай свой стиль</b><br>
+Со временем важно не просто повторять, а добавлять что-то своё — это делает танец уникальным.</p>
+</div>
+</section>
+
+<section id="stage" class="hidden">
+<h2>Как выйти на сцену</h2>
+<div class="card">
+<p>
+Выход на сцену — это важный этап в развитии любого танцора. Он требует не только технических навыков, но и уверенности, артистичности и умения работать с публикой.
+</p>
+
+<p>
+Первый шаг — это участие в различных танцевальных мероприятиях: баттлах, конкурсах, фестивалях и открытых выступлениях. Такие события помогают получить опыт, привыкнуть к сцене и научиться справляться с волнением.
+</p>
+
+<p>
+Важно активно проявлять себя: выкладывать видео с тренировок и выступлений в социальные сети, участвовать в кастингах и проектах. Это увеличивает шансы быть замеченным и получить приглашения на выступления.
+</p>
+
+<p>
+Не менее значимым является умение работать в команде. Часто выступления проходят в составе групп, поэтому важно уметь взаимодействовать с другими танцорами и чувствовать общую постановку.
+</p>
+
+<p>
+Также стоит развивать сценическую подачу: мимику, эмоции, уверенность в движениях. На сцене важно не только правильно выполнять движения, но и передавать энергию зрителю.
+</p>
+
+<p>
+Регулярная практика и участие в проектах постепенно формируют опыт, благодаря которому сцена перестаёт пугать и становится комфортной средой для самовыражения.
+</p>
+</div>
+</section>
+
+<section id="story" class="hidden">
+<h2>История танцора</h2>
+<div class="card story-block">
+
+<img src="lesha.jpg" class="story-img">
+
+<div class="story-text">
+
+<h3>Лёша Летучий</h3>
+
+<p>Алексей Летучий — танцовщик и хореограф, победитель пятого сезона шоу «Танцы на ТНТ».</p>
+
+<p>В настоящее время Алексей известен благодаря своим ярким выступлениям и работе с артистом Мотом.</p>
+
+<p>Его танцевальные видео набирают популярность в социальных сетях по всему миру.</p>
+
+<p>Работал в команде шоу Елены Темниковой, Славы и артистов лейбла Black Star.</p>
+
+<p>Победитель различных танцевальных конкурсов и фестивалей.</p>
+
+</div>
+
+</div>
+</section>
+
+<!-- МОДАЛКИ -->
+
+<div id="fact1" class="modal"><div class="modal-content">
+<span onclick="closeModal('fact1')">✖</span>
+<h2>Мозг</h2>
+<p>Танцы развивают память и внимание.</p>
+</div></div>
+
+<div id="fact2" class="modal"><div class="modal-content">
+<span onclick="closeModal('fact2')">✖</span>
+<h2>Стресс</h2>
+<p>Танцы помогают расслабиться.</p>
+</div></div>
+
+<div id="fact3" class="modal"><div class="modal-content">
+<span onclick="closeModal('fact3')">✖</span>
+<h2>Уверенность</h2>
+<p>Ты становишься увереннее.</p>
+</div></div>
+
+<div id="fact4" class="modal"><div class="modal-content">
+<span onclick="closeModal('fact4')">✖</span>
+<h2>Пластика</h2>
+<p>Тело становится гибче.</p>
+</div></div>
+
+<div id="fact5" class="modal"><div class="modal-content">
+<span onclick="closeModal('fact5')">✖</span>
+<h2>Энергия</h2>
+<p>Больше энергии в жизни.</p>
+</div></div>
+
+<div id="fact6" class="modal"><div class="modal-content">
+<span onclick="closeModal('fact6')">✖</span>
+<h2>Настроение</h2>
+<p>Танцы делают тебя счастливее.</p>
+</div></div>
+
+<script>
+function toggleMenu(){
+let menu=document.getElementById("menu");
+menu.style.left=(menu.style.left==="0px")?"-260px":"0px";
+}
+
+function openModal(id){
+document.getElementById(id).style.display="flex";
+}
+
+function closeModal(id){
+document.getElementById(id).style.display="none";
+}
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+});
+
+document.querySelectorAll('.hidden').forEach(el=>{
+observer.observe(el);
+});
+</script>
+
+</body>
+</html>
