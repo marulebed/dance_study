@@ -300,6 +300,36 @@ transform:scale(1.02);
   font-weight: 500;
   font-size: 15px;
 }
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
 </style>
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
@@ -336,39 +366,46 @@ transform:scale(1.02);
 </section>
 
 <section id="facts" class="hidden">
-<h2>✨ Интересные факты</h2>
+<h2> Интересные факты</h2>
 
 <div class="grid">
 
-  <div class="fact-card">
+  <div class="fact-card" onclick="openModal('fact1')">
     <div class="icon gradient1"><i class="ri-brain-line"></i></div>
     <p>Развивают мозг</p>
   </div>
 
-  <div class="fact-card">
+  <div class="fact-card" onclick="openModal('fact2')">
     <div class="icon gradient2"><i class="ri-mental-health-line"></i></div>
     <p>Снижают стресс</p>
   </div>
 
-  <div class="fact-card">
+  <div class="fact-card" onclick="openModal('fact3')">
     <div class="icon gradient3"><i class="ri-fire-line"></i></div>
     <p>Уверенность</p>
   </div>
 
-  <div class="fact-card">
+  <div class="fact-card" onclick="openModal('fact4')">
     <div class="icon gradient4"><i class="ri-body-scan-line"></i></div>
     <p>Пластика</p>
   </div>
 
-  <div class="fact-card">
+  <div class="fact-card" onclick="openModal('fact5')">
     <div class="icon gradient5"><i class="ri-flashlight-line"></i></div>
     <p>Энергия</p>
   </div>
 
-  <div class="fact-card">
+  <div class="fact-card" onclick="openModal('fact6')">
     <div class="icon gradient6"><i class="ri-heart-3-line"></i></div>
     <p>Настроение</p>
   </div>
+
+</div>
+  </div>
+
+ 
+
+</div>
 
 </div>
 </section>
@@ -376,9 +413,16 @@ transform:scale(1.02);
 <section id="styles" class="hidden">
 <h2>Популярные стили танцев</h2>
 <div class="grid">
-<div class="card">Hip-Hop — энергия и свобода</div>
-<div class="card">Contemporary — эмоции и глубина</div>
-<div class="card">Jazz-Funk — сцена и харизма</div>
+<div class="card" onclick="openStyle('style1')">
+  Hip-Hop — энергия и свобода
+</div>
+
+<div class="card" onclick="openStyle('style2')">
+  Contemporary — эмоции и глубина
+</div>
+
+<div class="card" onclick="openStyle('style3')">
+  Jazz-Funk — сцена и харизма
 </div>
 </section>
 
@@ -521,5 +565,42 @@ observer.observe(el);
 
   </div>
 </section>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">✖</span>
+    <p id="modal-text"></p>
+  </div>
+</div>
+<script>
+function openStyle(style) {
+  const texts = {
+    style1: "Hip-Hop — это уличный стиль, который появился в Нью-Йорке. Он про свободу, энергию и самовыражение. Здесь нет строгих правил — ты двигаешься так, как чувствуешь. Развивает ритм, уверенность и харизму. Отлично подходит для начинающих 🔥",
+
+    style2: "Contemporary — современный танец, сочетающий технику и эмоции. Он помогает выразить внутренние чувства через движения. Часто используется в постановках и шоу. Развивает гибкость, баланс и контроль тела. Очень красивый и глубокий стиль 💫",
+
+    style3: "Jazz-Funk — это яркий сценический стиль. Он сочетает элементы джаза, хип-хопа и шоу-танца. Движения резкие, эффектные и харизматичные. Развивает уверенность, подачу и артистизм. Часто используется в клипах и выступлениях ⭐"
+  };
+
+  document.getElementById("modal-text").innerText = texts[style];
+  document.getElementById("modal").style.display = "flex";
+}
+function openModal(fact) {
+  const texts = {
+    fact1: "Танцы улучшают память, концентрацию и работу мозга ",
+    fact2: "Танцы помогают расслабиться и снизить стресс ",
+    fact3: "С каждым занятием растёт уверенность в себе ",
+    fact4: "Развивается пластика и контроль тела ",
+    fact5: "Танцы дают заряд энергии и лёгкость ",
+    fact6: "Поднимается настроение и появляется радость "
+  };
+
+  document.getElementById("modal-text").innerText = texts[fact];
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
 </body>
 </html>
