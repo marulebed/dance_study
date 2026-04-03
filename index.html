@@ -21,7 +21,7 @@ scroll-behavior:smooth;
 .menu-btn{
 position:fixed;
 top:20px;
-left:20px;
+left: 5px;
 font-size:30px;
 cursor:pointer;
 z-index:1001;
@@ -226,7 +226,82 @@ transform:scale(1.02);
   text-align: center;
   color: white;
 }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.fact-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  border-radius: 22px;
+
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(12px);
+
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.fact-card::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+  top: -100%;
+  left: -100%;
+  transition: 0.5s;
+}
+
+.fact-card:hover::before {
+  top: 0;
+  left: 0;
+}
+
+.fact-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+.icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon i {
+  color: white;
+  font-size: 24px;
+  transition: 0.4s;
+}
+
+.fact-card:hover .icon i {
+  transform: scale(1.2) rotate(8deg);
+}
+
+/* 💥 ГРАДИЕНТЫ (вкусные цвета) */
+.gradient1 { background: linear-gradient(135deg, #667eea, #764ba2); }
+.gradient2 { background: linear-gradient(135deg, #43cea2, #185a9d); }
+.gradient3 { background: linear-gradient(135deg, #ff512f, #dd2476); }
+.gradient4 { background: linear-gradient(135deg, #11998e, #38ef7d); }
+.gradient5 { background: linear-gradient(135deg, #f7971e, #ffd200); }
+.gradient6 { background: linear-gradient(135deg, #ff758c, #ff7eb3); }
+
+.fact-card p {
+  font-weight: 500;
+  font-size: 15px;
+}
 </style>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
 <body>
@@ -242,11 +317,11 @@ transform:scale(1.02);
 <a href="#stage">Сцена</a>
 <a href="#story">История</a>
 </div>
-
 <section class="hero">
   <div class="hero-content">
     <h1>ТАНЦЫ С НУЛЯ 💃</h1>
     <p>Просто начни — и всё получится</p>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   </div>
 </section>
 
@@ -264,12 +339,37 @@ transform:scale(1.02);
 <h2>✨ Интересные факты</h2>
 
 <div class="grid">
-<div class="card fact" onclick="openModal('fact1')">🧠 Развивают мозг</div>
-<div class="card fact" onclick="openModal('fact2')">😌 Снижают стресс</div>
-<div class="card fact" onclick="openModal('fact3')">🔥 Уверенность</div>
-<div class="card fact" onclick="openModal('fact4')">💃 Пластика</div>
-<div class="card fact" onclick="openModal('fact5')">⚡ Энергия</div>
-<div class="card fact" onclick="openModal('fact6')">❤️ Настроение</div>
+
+  <div class="fact-card">
+    <div class="icon gradient1"><i class="ri-brain-line"></i></div>
+    <p>Развивают мозг</p>
+  </div>
+
+  <div class="fact-card">
+    <div class="icon gradient2"><i class="ri-mental-health-line"></i></div>
+    <p>Снижают стресс</p>
+  </div>
+
+  <div class="fact-card">
+    <div class="icon gradient3"><i class="ri-fire-line"></i></div>
+    <p>Уверенность</p>
+  </div>
+
+  <div class="fact-card">
+    <div class="icon gradient4"><i class="ri-body-scan-line"></i></div>
+    <p>Пластика</p>
+  </div>
+
+  <div class="fact-card">
+    <div class="icon gradient5"><i class="ri-flashlight-line"></i></div>
+    <p>Энергия</p>
+  </div>
+
+  <div class="fact-card">
+    <div class="icon gradient6"><i class="ri-heart-3-line"></i></div>
+    <p>Настроение</p>
+  </div>
+
 </div>
 </section>
 
@@ -377,6 +477,49 @@ observer.observe(el);
   <source src="dance.mp4" type="video/mp4">
 </video>
 </div>
+</section>
+<section id="final">
+  <div class="card" style="text-align:center">
+
+    <p style="margin-bottom:20px; line-height:1.7;">
+      С каждым шагом тело начинает запоминать ритм, движения становятся увереннее, 
+      а внутри рождается ощущение гармонии. Постепенно приходит гибкость — не только 
+      физическая, но и внутренняя. Уходит скованность, появляется лёгкость, 
+      раскрывается уверенность в себе.
+    </p>
+
+    <p style="margin-bottom:30px; font-weight:500;">
+      Позволь себе начать — и ты удивишься, как много силы, грации и свободы уже есть в тебе.
+    </p>
+
+    <a href="https://t.me/dance_kurs" target="_blank" 
+   style="
+     display:inline-flex;
+     align-items:center;
+     gap:10px;
+     padding:14px 24px;
+     background:linear-gradient(45deg,#0088cc,#00aaff);
+     color:white;
+     text-decoration:none;
+     border-radius:40px;
+     font-weight:600;
+     box-shadow:0 10px 30px rgba(0,136,204,0.4);
+     transition:0.3s;
+   "
+   onmouseover="this.style.transform='scale(1.05)'"
+   onmouseout="this.style.transform='scale(1)'"
+>
+
+  <!-- ИКОНКА TELEGRAM -->
+  <svg width="20" height="20" viewBox="0 0 240 240" fill="white">
+    <path d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0zm55.6 82.4l-22.6 106.6c-1.7 7.6-6.1 9.5-12.3 5.9l-34-25-16.4 15.8c-1.8 1.8-3.3 3.3-6.8 3.3l2.4-34.5 62.9-56.8c2.7-2.4-.6-3.8-4.2-1.4l-77.8 49-33.5-10.5c-7.3-2.3-7.4-7.3 1.5-10.8l130.9-50.5c6.1-2.3 11.4 1.5 9.9 10.9z"/>
+  </svg>
+
+  Подписывайся на Telegram-канал — там больше полезного и вдохновения
+
+</a>
+
+  </div>
 </section>
 </body>
 </html>
